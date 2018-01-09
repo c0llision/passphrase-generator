@@ -42,9 +42,9 @@ def cli_args():
     parser = ArgumentParser(description='''Passphrase generator.\n
     Time to crack is how long it would take all Bitcoin mining power to crack the password when
     it is hashed with 2 iterations of sha256.''')
-    parser.add_argument("-w", "--num-words", nargs='?', default=DEFAULT_NUM_WORDS ,type=int,
+    parser.add_argument("-w", "--num-words", nargs='?', default=DEFAULT_NUM_WORDS, type=int,
                         help='Number of random words to generate (default: %d)' % DEFAULT_NUM_WORDS)
-    parser.add_argument("-c", "--num-chars", nargs='?', default=DEFAULT_NUM_CHARS ,type=int,
+    parser.add_argument("-c", "--num-chars", nargs='?', default=DEFAULT_NUM_CHARS, type=int,
                         help='Number of random characters to generate (default: %d)' % DEFAULT_NUM_CHARS)
     return parser.parse_args()
 
