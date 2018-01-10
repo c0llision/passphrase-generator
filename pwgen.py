@@ -9,10 +9,8 @@ DEFAULT_NUM_CHARS = 4
 # charset that results in a password with the lowest possible number of keystrokes on my keyboard:
 CHARSET = "1234567890qwertyuiopasdfghjklzxcvbnm[];'\\,./`"
 
-
-def read_wordlist():
-    with open(WORDLIST_FILENAME, 'r') as f:
-        return f.read().splitlines()
+with open(WORDLIST_FILENAME, 'r') as f:
+    WORDLIST = f.read().splitlines()
 
 
 def new_password(num_words=DEFAULT_NUM_WORDS, num_chars=DEFAULT_NUM_CHARS):
@@ -41,9 +39,6 @@ def cli_args():
     parser.add_argument("-c", "--num-chars", nargs='?', default=DEFAULT_NUM_CHARS, type=int,
                         help='Number of random characters to generate (default: %d)' % DEFAULT_NUM_CHARS)
     return parser.parse_args()
-
-
-WORDLIST = read_wordlist()
 
 
 def main():
