@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+''' Author: c0llision '''
 import math
 from argparse import ArgumentParser
 import secrets
