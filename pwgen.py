@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-import os
 import math
 from argparse import ArgumentParser
+import secrets
 
 WORDLIST_FILENAME = "wordlist"
 DEFAULT_NUM_WORDS = 5
@@ -16,16 +16,10 @@ def read_wordlist():
 
 
 def new_password(num_words=DEFAULT_NUM_WORDS, num_chars=DEFAULT_NUM_CHARS):
-    out = ''
-    for x in range(num_words):
-        num = int(os.urandom(4).hex(), 16) % len(WORDLIST)
-        out += WORDLIST[num] + ' '
+    words = ' '.join(secrets.choice(WORDLIST) for x in range(num_words))
+    chars = ''.join(secrets.choice(CHARSET) for x in range(num_chars))
 
-    for x in range(num_chars):
-        num = int(os.urandom(4).hex(), 16) % len(CHARSET)
-        out += CHARSET[num]
-
-    return out.rstrip()
+    return "{} {}".format(words, chars)
 
 
 def get_entropy(num_words, num_chars):
